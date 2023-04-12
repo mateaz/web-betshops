@@ -78,14 +78,17 @@ export const MapLeaflet: React.FC = () => {
     <div className="font-roboto relative h-screen w-screen overflow-hidden">
       <div className="z-0 h-screen w-screen overflow-hidden">
         <MapContainer
-          center={[44.515856, 16.450145]}
-          zoom={7}
-          /*  maxZoom={maxZoom}
-            minZoom={minZoom} */
-          zoomControl={false}
-          className="h-screen w-screen"
+          center={[44.436141, 26.10272]} // staviti u neku varijablu van
+          zoom={7} // staviti u neku varijablu van
+          maxZoom={13} // staviti u neku varijablu van
+          minZoom={6} // staviti u neku varijablu van
+          // zoomControl={false}
+          className="h-screen w-[25rem] border-2 border-white" // postaviti visinu
           // whenReady={setMapRef}
-          // maxBounds={[43.44, 20.26], [48.27, 31.41]}
+          maxBounds={[
+            [43.44, 20.26],
+            [48.27, 31.41],
+          ]} // staviti u neku varijablu van
         >
           {/*     <div className="relative wrapper">
               <ZoomControl position="topright" />
@@ -101,7 +104,7 @@ export const MapLeaflet: React.FC = () => {
               </div>
             </div> */}
           <TileLayer
-            // attribution="https://www.openstreetmap.org/copyright"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
         </MapContainer>
