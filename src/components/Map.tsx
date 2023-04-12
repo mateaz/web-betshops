@@ -85,7 +85,7 @@ export const MapLeaflet: React.FC = () => {
           zoomControl={false}
           className="h-screen w-screen"
           // whenReady={setMapRef}
-          // maxBounds={maxBound}
+          // maxBounds={[43.44, 20.26], [48.27, 31.41]}
         >
           {/*     <div className="relative wrapper">
               <ZoomControl position="topright" />
