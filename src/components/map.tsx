@@ -1,9 +1,24 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React from "react";
+import React, { useEffect } from "react";
 import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer } from "react-leaflet";
+import { getBetShops } from "../services/map";
 
 export const MapLeaflet: React.FC = () => {
+  useEffect(() => {
+    /*   getBetShops
+      .get(`/betshops?boundingBox=${[48.16124, 11.60912, 48.12229, 11.52741]}`)
+      .then((response) => {
+        console.log(response.data);
+      }); */
+
+    getBetShops([48.16124, 11.60912, 48.12229, 11.52741]).then(
+      (response: any) => {
+        // promijeniti
+        console.log(response.data);
+      },
+    );
+  }, []);
   return (
     <div className="font-roboto relative h-screen w-screen overflow-hidden">
       <div className="z-0 h-screen w-screen overflow-hidden">
