@@ -13,6 +13,7 @@ export const MapLeaflet: React.FC = () => {
           maxZoom={13} // staviti u neku varijablu van
           minZoom={6} // staviti u neku varijablu van
           // zoomControl={false}
+
           className="h-screen w-[25rem] border-2 border-white" // postaviti visinu
           // whenReady={setMapRef}
           maxBounds={[
