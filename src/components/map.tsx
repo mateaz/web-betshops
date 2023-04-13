@@ -10,7 +10,10 @@ export const MapLeaflet: React.FC = () => {
   // const [mapRef, setMapRef] = useState<any>();
   const [betshopMarkers, setBetshopMarkers] = useState<Betshop[]>();
   useEffect(() => {
+    // 48.16124,11.60912,48.12229,11.52741
+    // 68.720441, 103.271484, 13.325485, -63.984375
     getBetShops([48.16124, 11.60912, 48.12229, 11.52741]).then((response) => {
+      // console.log(response.data.betshops);
       setBetshopMarkers(response.data.betshops);
     });
   }, []);
@@ -39,7 +42,7 @@ export const MapLeaflet: React.FC = () => {
 
           {betshopMarkers && <BetshopMarkers betshopMarkers={betshopMarkers} />}
         </MapContainer>
-        {/* buduci sidebar vamo */}
+        {/* buduci sidebar */}
       </div>
     </div>
   );

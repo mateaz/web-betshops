@@ -32,24 +32,20 @@ export const BetshopMarkers: React.FC<BetshopMarkersProps> = ({
   };
 
   return (
-    <div>
-      {betshopMarkers &&
-        betshopMarkers.map(({ id, location }) => {
-          const latLng: LatLngExpression = [location.lat, location.lng];
-
-          return (
-            <MarkerClusterGroup>
-              <Marker
-                icon={getMarkerIcon(id)}
-                position={latLng}
-                key={id}
-                eventHandlers={{
-                  click: () => handleOnClickMarker(id),
-                }}
-              />
-            </MarkerClusterGroup>
-          );
-        })}
-    </div>
+    <MarkerClusterGroup>
+      {betshopMarkers.map(({ id, location }) => {
+        const latLng: LatLngExpression = [location.lat, location.lng];
+        return (
+          <Marker
+            icon={getMarkerIcon(id)}
+            position={latLng}
+            key={id}
+            eventHandlers={{
+              click: () => handleOnClickMarker(id),
+            }}
+          />
+        );
+      })}
+    </MarkerClusterGroup>
   );
 };
