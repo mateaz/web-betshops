@@ -19,6 +19,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ betshops }) => {
           name={clickedBetshop?.name}
           address={clickedBetshop?.address}
           county={clickedBetshop?.county}
+          city={clickedBetshop?.city}
         />
       ) : (
         <p>Click on betshop icon to get informations about working hours</p>
