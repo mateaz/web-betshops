@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer } from "react-leaflet";
 import { Betshop } from "../types/betshop";
-import { getBetShops } from "../services/mapService";
+import { getBetShops } from "../lib/mapService";
 import { BetshopMarkers } from "./betshopMarkers";
 
 export const MapLeaflet: React.FC = () => {

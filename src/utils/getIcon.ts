@@ -1,11 +1,13 @@
-import L, { PointExpression } from "leaflet";
-import defaultIconUrl from "../assets/ic_pin_normal.png";
-import activeIconUrl from "../assets/ic_pin_active.png";
-
-const defaultIconSize: PointExpression = [16.5, 43];
-const activeIconSize: PointExpression = [24, 63];
+import L from "leaflet";
+import {
+  activeIconSize,
+  activeIconUrl,
+  defaultIconSize,
+  defaultIconUrl,
+} from "./constants";
 
 export const createIcon = (activeMarker?: number) => {
+  // vidi mozes li drugacije povo sloziti
   if (activeMarker)
     return new L.Icon({
       iconUrl: activeIconUrl,
