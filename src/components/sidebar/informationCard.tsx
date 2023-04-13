@@ -1,11 +1,24 @@
 import React from "react";
+import { DetailsRow } from "./detailsRow";
 
-export const InformationCard: React.FC = () => {
+interface InformationCardProps {
+  name: string;
+  address: string;
+  county: string;
+}
+
+export const InformationCard: React.FC<InformationCardProps> = ({
+  name,
+  address,
+  county,
+}) => {
   return (
     <div className="bg-white">
-      <p>ffff</p>
-      <p>sss</p>
-      <p>gg</p>
+      <div>
+        {name && <DetailsRow text={name} />}
+        {address && <DetailsRow text={address} />}
+        {county && <DetailsRow text={county} />}
+      </div>
     </div>
   );
 };

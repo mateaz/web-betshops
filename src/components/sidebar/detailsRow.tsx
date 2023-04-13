@@ -5,5 +5,5 @@ interface DetailsRowProps {
 }
 
 export const DetailsRow: React.FC<DetailsRowProps> = ({ text }) => {
-  return <p className="text-[#6e6e6e]">{text}</p>;
+  return <p className="text-darkgrey text-left">{text}</p>;
 };

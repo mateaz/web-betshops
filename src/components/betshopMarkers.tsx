@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 // import { MarkerLayer } from "react-leaflet-marker"; // DEINSTLAIRATI
-import { Icon, LatLngExpression, PointExpression } from "leaflet";
+import { LatLngExpression } from "leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
 import { Marker } from "react-leaflet";
 import { Betshop } from "../types/betshop";
 
 import { createIcon } from "../utils/getIcon";
+import { MyContext } from "../providers/blabla";
 
 interface BetshopMarkersProps {
   betshopMarkers: Betshop[];
@@ -14,19 +15,20 @@ interface BetshopMarkersProps {
 export const BetshopMarkers: React.FC<BetshopMarkersProps> = ({
   betshopMarkers,
 }) => {
+  const { setData } = React.useContext(MyContext);
   const [activeMarker, setActiveMarker] = useState<number>();
 
   const handleOnClickMarker = (selectedMarkedId: number): void => {
-    if (selectedMarkedId !== activeMarker) setActiveMarker(selectedMarkedId);
-    else setActiveMarker(undefined);
+    if (selectedMarkedId !== activeMarker) {
+      setActiveMarker(selectedMarkedId);
+      setData(selectedMarkedId);
+    } else {
+      setActiveMarker(undefined);
+      setData(undefined);
+    }
   };
 
-  const getMarkerIcon = (
-    index: number,
-  ): Icon<{
-    iconUrl: string;
-    iconAnchor: PointExpression;
-  }> => {
+  const getMarkerIcon = (index: number) => {
     if (index === activeMarker) return createIcon(activeMarker);
     return createIcon();
   };
