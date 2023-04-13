@@ -1,12 +1,18 @@
-import L from "leaflet";
-import iconUrl from "../assets/ic_pin_normal.png";
+import L, { PointExpression } from "leaflet";
+import defaultIconUrl from "../assets/ic_pin_normal.png";
+import activeIconUrl from "../assets/ic_pin_active.png";
 
-export const getIcon = (_active?: string) => {
-  console.log(_active);
-  // const iconPath = "../assets/ic_pin_normal.png";
-  return L.icon({
-    // eslint-disable-next-line global-require
-    iconUrl,
-    // iconSize: [38, 95],
+const defaultIconSize: PointExpression = [16.5, 43];
+const activeIconSize: PointExpression = [24, 63];
+
+export const createIcon = (activeMarker?: number) => {
+  if (activeMarker)
+    return new L.Icon({
+      iconUrl: activeIconUrl,
+      iconAnchor: activeIconSize,
+    });
+  return new L.Icon({
+    iconUrl: defaultIconUrl,
+    iconAnchor: defaultIconSize,
   });
 };
