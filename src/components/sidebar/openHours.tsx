@@ -6,7 +6,7 @@ import {
 } from "../../utils/getOpeningTime";
 import { ImgContainer } from "../imgContainer";
 import { closeHoursImg, openHoursImg } from "../../utils/constants";
-import { DetailsContainer } from "./detailsContainer";
+import { Box } from "./box";
 import { DetailsRow } from "./detailsRow";
 
 export const OpenHours: React.FC = () => {
@@ -27,11 +27,9 @@ export const OpenHours: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-row justify-between">
-      <DetailsContainer>
-        <ImgContainer imgUrl={imgURL} imgAlt="Betshop is open" />
-        <DetailsRow text={text} />
-      </DetailsContainer>
-    </div>
+    <Box>
+      <ImgContainer imgUrl={imgURL} imgAlt="Betshop is open" />
+      <DetailsRow text={text} />
+    </Box>
   );
 };

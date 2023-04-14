@@ -12,7 +12,7 @@ export const TemperatureTag: React.FC<TemperatureTagProps> = ({
   const scales: number[] = [14, 20, 25];
 
   const tagClassNames = classNames(
-    "h-fit w-fit text-white px-2 text-sm font-medium",
+    "h-fit w-15 text-white px-1 text-xxs font-medium",
     {
       "bg-blue": temperature < scales[0],
       green: temperature >= scales[0] && temperature < scales[1],

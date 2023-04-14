@@ -16,8 +16,8 @@ interface MainDetails {
   sea_level: number;
   temp: number;
   temp_kf: number;
-  temp_max?: number;
-  temp_min?: number;
+  temp_max: number;
+  temp_min: number;
 }
 
 interface WeatherDescription {
