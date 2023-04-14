@@ -10,19 +10,28 @@ import { DetailsContainer } from "./detailsContainer";
 import { DetailsRow } from "./detailsRow";
 
 export const OpenHours: React.FC = () => {
+  let imgURL: string = "";
+  let text: string = "";
+
+  switch (isBetshopOpen()) {
+    case true:
+      imgURL = openHoursImg;
+      text = `Open now until ${endOpenHour}`;
+      break;
+    case false:
+      imgURL = closeHoursImg;
+      text = `Opens tomorrow at ${startOpenHour}`;
+      break;
+    default:
+      break;
+  }
+
   return (
     <div className="flex flex-row justify-between">
-      {isBetshopOpen() ? (
-        <DetailsContainer>
-          <ImgContainer imgUrl={openHoursImg} imgAlt="Betshop is open" />
-          <DetailsRow text={`Open now until ${endOpenHour}`} />
-        </DetailsContainer>
-      ) : (
-        <DetailsContainer>
-          <ImgContainer imgUrl={closeHoursImg} imgAlt="Betshop is closed" />
-          <DetailsRow text={`Opens tomorrow at ${startOpenHour}`} />
-        </DetailsContainer>
-      )}
+      <DetailsContainer>
+        <ImgContainer imgUrl={imgURL} imgAlt="Betshop is open" />
+        <DetailsRow text={text} />
+      </DetailsContainer>
     </div>
   );
 };

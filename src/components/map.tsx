@@ -13,14 +13,14 @@ export const MapLeaflet: React.FC = () => {
     // 48.16124,11.60912,48.12229,11.52741
     // 68.720441, 103.271484, 13.325485, -63.984375
     getBetShops([48.16124, 11.60912, 48.12229, 11.52741]).then((response) => {
-      console.log(response.data.betshops);
+      //  console.log(response.data.betshops);
       setBetshopMarkers(response.data.betshops);
     });
   }, []);
 
   return (
     <div className="font-roboto relative h-screen w-screen overflow-hidden">
-      <div className="z-0 h-screen w-screen overflow-hidden flex flex-row">
+      <div className="z-0 h-screen w-screen overflow-hidden flex flex-row gap-x-[15px]">
         <MapContainer
           center={[48.137154, 11.576124]} // staviti u neku varijablu van
           zoom={7} // staviti u neku varijablu van
