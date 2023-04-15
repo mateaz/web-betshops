@@ -40,7 +40,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ betshops }) => {
           />
         </div>
       ) : (
-        <p>Click on betshop icon to get informations about working hours</p> // daj stil
+        <p className="flex h-full items-center text-blue font-medium italic">
+          To get some information about a betshop, click on icon
+        </p> // daj stil
       )}
     </div>
   );

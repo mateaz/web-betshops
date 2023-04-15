@@ -14,7 +14,7 @@ export const Layout: React.FC = () => {
       .then((response) => {
         setBetshopMarkers(response.data.betshops);
       })
-      .catch((e) => console.log(e))
+      .catch((e) => console.error(e))
       .finally(() => setLoading(false));
   }, []);
 
