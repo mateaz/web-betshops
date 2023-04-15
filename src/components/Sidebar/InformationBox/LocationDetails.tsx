@@ -1,8 +1,8 @@
 import React from "react";
-import { Box } from "../shared/Box";
-import { DetailsRow } from "../shared/DetailsRow";
-import { Betshop } from "../../types/betshop";
-import { LocationIcon } from "../shared/LocationIcon";
+import { Box } from "../../shared/Box";
+import { DetailsRow } from "../../shared/DetailsRow";
+import { Betshop } from "../../../types/betshop";
+import { LocationIcon } from "../../shared/LocationIcon";
 
 interface LocationDetailsProps {
   betshop: Betshop;

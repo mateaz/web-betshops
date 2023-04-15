@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-// import { MarkerLayer } from "react-leaflet-marker"; // DEINSTLAIRATI
+import React from "react";
 import { LatLngExpression } from "leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
 import { Marker } from "react-leaflet";
-import { Betshop } from "../types/betshop";
+import { Betshop } from "../../types/betshop";
 
-import { createIcon } from "../utils/getIcon";
-import { useSelectedBetshop } from "../hooks.ts/useSelectedBetshop";
+import { createIcon } from "../../utils/getIcon";
+import { useSelectedBetshop } from "../../hooks.ts/useSelectedBetshop";
 
 interface BetshopMarkersProps {
   betshopMarkers: Betshop[];
@@ -15,21 +14,18 @@ interface BetshopMarkersProps {
 export const BetshopMarkers: React.FC<BetshopMarkersProps> = ({
   betshopMarkers,
 }) => {
-  const { setBetshopId } = useSelectedBetshop();
-  const [activeMarker, setActiveMarker] = useState<number>();
+  const { betshopId, setBetshopId } = useSelectedBetshop();
 
   const handleOnClickMarker = (selectedMarkedId: number): void => {
-    if (selectedMarkedId !== activeMarker) {
-      setActiveMarker(selectedMarkedId);
+    if (selectedMarkedId !== betshopId) {
       setBetshopId(selectedMarkedId);
     } else {
-      setActiveMarker(undefined);
       setBetshopId(undefined);
     }
   };
 
   const getMarkerIcon = (index: number) => {
-    if (index === activeMarker) return createIcon(activeMarker);
+    if (index === betshopId) return createIcon(betshopId);
     return createIcon();
   };
 

@@ -3,11 +3,11 @@ import {
   endOpenHour,
   isBetshopOpen,
   startOpenHour,
-} from "../../utils/getOpeningTime";
-import { Box } from "../shared/Box";
-import { DetailsRow } from "../shared/DetailsRow";
-import { HoursIcon } from "../shared/HoursIcon";
-import { CloseIcon } from "../shared/CloseIcon";
+} from "../../../utils/getOpeningTime";
+import { Box } from "../../shared/Box";
+import { DetailsRow } from "../../shared/DetailsRow";
+import { HoursIcon } from "../../shared/HoursIcon";
+import { CloseIcon } from "../../shared/CloseIcon";
 
 export const WorkingHoursDetails: React.FC = () => {
   if (isBetshopOpen())

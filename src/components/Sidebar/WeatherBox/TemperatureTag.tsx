@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import React from "react";
-import { temperatureScales } from "../../utils/constants";
+import { temperatureScales } from "../../../utils/constants";
 
 interface TemperatureTagProps {
   temperature: number;

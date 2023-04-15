@@ -1,5 +1,5 @@
 import React from "react";
-import { Betshop } from "../../types/betshop";
+import { Betshop } from "../../../types/betshop";
 import { LocationDetails } from "./LocationDetails";
 import { WorkingHoursDetails } from "./WorkingHoursDetails";
 

@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren, useMemo } from "react";
 
 export interface BetshopState {
   betshopId?: number;
@@ -9,16 +9,15 @@ export const BetshopContext = React.createContext<BetshopState>(null);
 export const BetshopContextProvider: React.FC<PropsWithChildren> = ({
   children,
 }) => {
-  const [selectedBetshop, setSelectedBetshop] = React.useState();
+  const [betshopId, setBetshopId] = React.useState();
+
+  const betshopIdProviderValue = useMemo(
+    () => ({ betshopId, setBetshopId }),
+    [betshopId, setBetshopId],
+  );
 
   return (
-    <BetshopContext.Provider
-      // eslint-disable-next-line react/jsx-no-constructed-context-values
-      value={{
-        betshopId: selectedBetshop,
-        setBetshopId: setSelectedBetshop,
-      }}
-    >
+    <BetshopContext.Provider value={betshopIdProviderValue}>
       {children}
     </BetshopContext.Provider>
   );

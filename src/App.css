@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-@media only screen and (max-width: 630px) {
+
   .sidebar {
     transition: all 1.3s;
     position: absolute;
@@ -13,4 +13,4 @@
   .sidebar.show {
     right: 0;
   }
-}
+

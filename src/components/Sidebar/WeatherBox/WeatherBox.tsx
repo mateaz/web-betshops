@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { getWheather } from "../../lib/wheatherService";
-import { WeatherDataItem } from "../../types/weather";
-
+import { getWeather } from "../../../lib/wheatherService";
+import { WeatherDataItem } from "../../../types/weather";
 import { WeatherCards } from "./WeatherCards";
-import { LoadingSpinner } from "../shared/LoadingSpinner";
-import { groupWeatherDataByDay } from "../../utils/getGroupedWeatherData";
+import { LoadingSpinner } from "../../shared/LoadingSpinner";
+import { groupWeatherDataByDay } from "../../../utils/getGroupedWeatherData";
 
 interface WeatherBoxProps {
   lat: number;
@@ -16,11 +15,11 @@ export const WeatherBox: React.FC<WeatherBoxProps> = ({ lat, lng }) => {
 
   useEffect(() => {
     if (lat && lng) {
-      getWheather(lat, lng)
+      getWeather(lat, lng)
         .then((response) =>
           setWeatherData(groupWeatherDataByDay(response.data.list)),
         )
-        .catch((e) => console.log(e))
+        .catch((e) => console.error(e))
         .finally(() => setLoading(false));
     }
   }, [lat, lng]);

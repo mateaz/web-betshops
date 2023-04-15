@@ -4,8 +4,8 @@ import {
   convertDate,
   getHoursFromDate,
   isDateToday,
-} from "../../utils/convertDate";
-import { WeatherDataItem } from "../../types/weather";
+} from "../../../utils/convertDate";
+import { WeatherDataItem } from "../../../types/weather";
 
 interface WeatherCardsProps {
   weatherData: WeatherDataItem[] | undefined;
