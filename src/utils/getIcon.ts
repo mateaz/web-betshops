@@ -7,7 +7,6 @@ import {
 } from "./constants";
 
 export const createIcon = (activeMarker?: number) => {
-  // vidi mozes li drugacije povo sloziti
   if (activeMarker)
     return new L.Icon({
       iconUrl: activeIconUrl,

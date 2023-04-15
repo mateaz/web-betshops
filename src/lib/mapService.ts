@@ -1,13 +1,11 @@
-import axios /* , { AxiosResponse  } */ from "axios";
-// import { Betshop } from "../types/betshop";
+import axios from "axios";
 
-const superologyBaseURL = "https://interview.superology.dev"; // mozda izbaciti van
+const baseURL = "https://interview.superology.dev";
 
 const apiCall = axios.create({
-  baseURL: superologyBaseURL,
+  baseURL,
 });
 
-export const getBetShops = (bbox: number[]) => {
-  // staviti type
+export const getBetshops = (bbox: number[]) => {
   return apiCall.get(`/betshops?boundingBox=${bbox}`);
 };

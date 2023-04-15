@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import { MapLeaflet } from "./components/map";
+import { Layout } from "./components";
 
 const App: React.FC = () => {
   return (
-    <div className="App h-screen w-screen">
-      <MapLeaflet />
+    <div className="App h-screen w-screen bg-lightgrey">
+      <Layout />
     </div>
   );
 };
