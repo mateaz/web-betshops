@@ -1,62 +1,35 @@
 import React, { useEffect, useState } from "react";
 import { getWheather } from "../../lib/wheatherService";
-import { WeatherData, WeatherDataItem } from "../../types/weather";
+import { WeatherDataItem } from "../../types/weather";
+
 import { WeatherCards } from "./weatherCards";
-import {
-  convertDate,
-  getHoursFromDate,
-  isDateToday,
-} from "../../utils/convertDate";
+import { LoadingSpinner } from "./loadingSpinner";
+import { groupWeatherDataByDay } from "../../utils/getGroupedWeatherData";
 
 interface WeatherBoxProps {
   lat: number;
   lng: number;
 }
-
-const transformWeatherData = (data: WeatherData[]) => {
-  // rename
-  return data.map(({ dt_txt, main, weather, clouds }) => ({
-    dt_txt,
-    main,
-    weather,
-    clouds,
-  }));
-};
-
 export const WeatherBox: React.FC<WeatherBoxProps> = ({ lat, lng }) => {
   const [weatherData, setWeatherData] = useState<WeatherDataItem[]>();
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     if (lat && lng) {
-      getWheather(lat, lng).then((response) => {
-        setWeatherData(transformWeatherData(response.data.list));
-      });
+      getWheather(lat, lng)
+        .then((response) =>
+          setWeatherData(groupWeatherDataByDay(response.data.list)),
+        )
+        .catch((e) => console.log(e))
+        .finally(() => setLoading(false));
     }
   }, [lat, lng]);
 
+  if (loading) return <LoadingSpinner text="Weather data is loading..." />;
   return (
-    <div className="basis-full h-fit">
+    <div className="w-full overflow-y-auto h-full">
       <h3 className="text-darkgrey font-medium">Weather</h3>
-      <div className="overflow-y-auto h-full">
-        {weatherData?.map(({ dt_txt, weather, main, clouds }, index) => {
-          const today = isDateToday(dt_txt);
-          const date = `${convertDate(dt_txt)} at ${getHoursFromDate(dt_txt)} `;
-          const cloudsPressure = `${clouds?.all}%, ${main.pressure} hpa`;
-
-          return (
-            <WeatherCards
-              index={index}
-              key={dt_txt}
-              date={date}
-              today={today}
-              cloudsPressure={cloudsPressure}
-              tempMax={main.temp_max}
-              tempMin={main.temp_min}
-              description={weather[0].description}
-            />
-          );
-        })}
-      </div>
+      <WeatherCards weatherData={weatherData} />
     </div>
   );
 };

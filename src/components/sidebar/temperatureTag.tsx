@@ -12,7 +12,7 @@ export const TemperatureTag: React.FC<TemperatureTagProps> = ({
   const scales: number[] = [14, 20, 25];
 
   const tagClassNames = classNames(
-    "h-fit w-15 text-white px-1 text-xxs font-medium",
+    "h-fit w-9 text-white px-1 text-xxs font-medium text-center",
     {
       "bg-blue": temperature < scales[0],
       green: temperature >= scales[0] && temperature < scales[1],
@@ -21,5 +21,5 @@ export const TemperatureTag: React.FC<TemperatureTagProps> = ({
     },
   );
 
-  return <div className={tagClassNames}>{`${temperature}C`}</div>;
+  return <div className={tagClassNames}>{`${temperature.toFixed(1)}C`}</div>;
 };

@@ -11,7 +11,7 @@ export const InformationCard: React.FC<InformationCardProps> = ({
   betshop,
 }) => {
   return (
-    <div className="flex flex-row flex-wrap justify-start gap-y-2 ">
+    <div className="flex flex-row flex-wrap justify-start gap-y-2 h-[130px]">
       <BetshopDetails betshopDetails={betshop} />
       <OpenHours />
     </div>

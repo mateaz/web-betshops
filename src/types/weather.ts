@@ -39,7 +39,7 @@ interface SysDetails {
   pod: string;
 }
 
-export interface WeatherData {
+export interface WeatherDataList {
   clouds?: CloudDetails;
   dt: number;
   dt_txt: string;
@@ -53,9 +53,14 @@ export interface WeatherData {
   wind: WindDetails;
 }
 
-export interface WeatherDataItem {
+export interface WeatherData {
   dt_txt: string;
   weather: WeatherDescription[];
   main: MainDetails;
   clouds?: CloudDetails;
+}
+
+export interface WeatherDataItem {
+  date: string;
+  weatherDataList: WeatherData[];
 }
