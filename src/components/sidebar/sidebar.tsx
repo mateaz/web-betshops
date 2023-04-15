@@ -14,19 +14,17 @@ export const Sidebar: React.FC<SidebarProps> = ({ betshops }) => {
 
   return (
     <div className="w-[215px] h-screen py-[22px] px-[18px] bg-white">
-      <div className="flex flex-col gap-y-[15px] h-full overflow-hidden">
-        {clickedBetshop ? (
-          <>
-            <InformationCard betshop={clickedBetshop} />
-            <WeatherBox
-              lat={clickedBetshop?.location.lat}
-              lng={clickedBetshop?.location.lng}
-            />
-          </>
-        ) : (
-          <p>Click on betshop icon to get informations about working hours</p> // daj stil
-        )}
-      </div>
+      {clickedBetshop ? (
+        <div className="flex flex-col gap-y-[15px] h-full overflow-hidden">
+          <InformationCard betshop={clickedBetshop} />
+          <WeatherBox
+            lat={clickedBetshop?.location.lat}
+            lng={clickedBetshop?.location.lng}
+          />
+        </div>
+      ) : (
+        <p>Click on betshop icon to get informations about working hours</p> // daj stil
+      )}
     </div>
   );
 };
