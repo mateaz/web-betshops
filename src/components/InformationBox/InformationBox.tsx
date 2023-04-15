@@ -9,7 +9,7 @@ interface InformationBoxProps {
 
 export const InformationBox: React.FC<InformationBoxProps> = ({ betshop }) => {
   return (
-    <div className="flex flex-row flex-wrap justify-start gap-y-2 h-[130px] w-full">
+    <div className="flex flex-row flex-wrap justify-start h-[130px] w-full">
       <LocationDetails betshop={betshop} />
       <WorkingHoursDetails />
     </div>

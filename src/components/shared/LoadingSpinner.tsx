@@ -8,7 +8,7 @@ interface SidebarProps {
 
 export const LoadingSpinner: React.FC<SidebarProps> = ({ text }) => {
   return (
-    <div className="text-center">
+    <div className="text-center h-full w-full flex flex-col flex-wrap justify-center items-center">
       <ClipLoader
         color="blue"
         loading
