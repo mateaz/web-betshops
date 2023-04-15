@@ -19,7 +19,6 @@ export const WeatherBox: React.FC<WeatherBoxProps> = ({ lat, lng }) => {
         .then((response) =>
           setWeatherData(groupWeatherDataByDay(response.data.list)),
         )
-        .catch((e) => console.error(e))
         .finally(() => setLoading(false));
     }
   }, [lat, lng]);

@@ -5,17 +5,17 @@ import { getBetshops } from "../lib/mapService";
 import { Sidebar } from "./Sidebar/Sidebar";
 import { MapLeaflet } from "./Map/MapLeaflet";
 import { LoadingSpinner } from "./shared/LoadingSpinner";
+import { mapConstants } from "../utils/constants";
 
 export const Layout: React.FC = () => {
   const [betshopMarkers, setBetshopMarkers] = useState<Betshop[]>();
   const [loading, setLoading] = useState<boolean>(true);
   useEffect(() => {
     setLoading(true);
-    getBetshops([48.16124, 11.60912, 48.12229, 11.52741])
+    getBetshops(mapConstants.bBox)
       .then((response) => {
         setBetshopMarkers(response.data.betshops);
       })
-      .catch((e) => console.error(e))
       .finally(() => setLoading(false));
   }, []);
 

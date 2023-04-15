@@ -30,6 +30,7 @@ interface MapConstants {
   maxZoom: number;
   minZoom: number;
   bounds: LatLngBoundsExpression;
+  bBox: number[];
 }
 
 export const mapConstants: MapConstants = {
@@ -41,4 +42,5 @@ export const mapConstants: MapConstants = {
     [48.16124, 11.60912],
     [48.12229, 11.52741],
   ],
+  bBox: [48.16124, 11.60912, 48.12229, 11.52741],
 };
