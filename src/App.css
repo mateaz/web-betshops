@@ -3,14 +3,18 @@
 }
 
 
+
+
+@media only screen and (max-width: 630px) {
   .sidebar {
     transition: all 1.3s;
     position: absolute;
     right: -100%;
     z-index: 999999;
   }
-
+  
   .sidebar.show {
     right: 0;
   }
+}
 

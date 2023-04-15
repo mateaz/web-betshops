@@ -31,7 +31,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ betshops }) => {
       >
         <CloseIcon />
       </button>
-      {clickedBetshop && (
+      {clickedBetshop ? (
         <div className="flex flex-col gap-y-[15px] h-full overflow-hidden">
           <InformationBox betshop={clickedBetshop} />
           <WeatherBox
@@ -39,6 +39,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ betshops }) => {
             lng={clickedBetshop?.location.lng}
           />
         </div>
+      ) : (
+        <p className="flex h-full items-center text-blue font-medium italic">
+          To get some information about a betshop, click on icon
+        </p>
       )}
     </div>
   );
