@@ -1,5 +1,5 @@
 import React from "react";
-import { TemperatureTag } from "./temperatureTag";
+import { TemperatureTag } from "./TemperatureTag";
 
 interface WeatherItemsProps {
   hours: string;
@@ -19,7 +19,7 @@ export const WeatherItems: React.FC<WeatherItemsProps> = ({
   return (
     <div className="text-left flex flex-row justify-between py-1 pl-1">
       <div>
-        {hours}
+        <p>{hours}</p>
         <p>{description}</p>
         <p>
           <span className="font-medium">clouds: </span>

@@ -1,11 +1,11 @@
 import React from "react";
 
-interface ImgContainerProps {
+interface IconContainerProps {
   imgUrl: string;
   imgAlt: string;
 }
 
-export const ImgContainer: React.FC<ImgContainerProps> = ({
+export const IconContainer: React.FC<IconContainerProps> = ({
   imgUrl,
   imgAlt,
 }) => {

@@ -6,7 +6,7 @@ import { Marker } from "react-leaflet";
 import { Betshop } from "../types/betshop";
 
 import { createIcon } from "../utils/getIcon";
-import { MyContext } from "../providers/blabla";
+import { useSelectedBetshop } from "../hooks.ts/useSelectedBetshop";
 
 interface BetshopMarkersProps {
   betshopMarkers: Betshop[];
@@ -15,16 +15,16 @@ interface BetshopMarkersProps {
 export const BetshopMarkers: React.FC<BetshopMarkersProps> = ({
   betshopMarkers,
 }) => {
-  const { setData } = React.useContext(MyContext);
+  const { setBetshopId } = useSelectedBetshop();
   const [activeMarker, setActiveMarker] = useState<number>();
 
   const handleOnClickMarker = (selectedMarkedId: number): void => {
     if (selectedMarkedId !== activeMarker) {
       setActiveMarker(selectedMarkedId);
-      setData(selectedMarkedId);
+      setBetshopId(selectedMarkedId);
     } else {
       setActiveMarker(undefined);
-      setData(undefined);
+      setBetshopId(undefined);
     }
   };
 

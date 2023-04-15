@@ -1,6 +1,6 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import classNames from "classnames";
 import React from "react";
+import { temperatureScales } from "../../utils/constants";
 
 interface TemperatureTagProps {
   temperature: number;
@@ -9,15 +9,17 @@ interface TemperatureTagProps {
 export const TemperatureTag: React.FC<TemperatureTagProps> = ({
   temperature,
 }) => {
-  const scales: number[] = [14, 20, 25];
-
   const tagClassNames = classNames(
     "h-fit w-9 text-white px-1 text-xxs font-medium text-center",
     {
-      "bg-blue": temperature < scales[0],
-      green: temperature >= scales[0] && temperature < scales[1],
-      orange: temperature >= scales[1] && temperature < scales[2],
-      "bg-red": temperature >= scales[2],
+      "bg-blue": temperature < temperatureScales[0],
+      green:
+        temperature >= temperatureScales[0] &&
+        temperature < temperatureScales[1],
+      orange:
+        temperature >= temperatureScales[1] &&
+        temperature < temperatureScales[2],
+      "bg-red": temperature >= temperatureScales[2],
     },
   );
 

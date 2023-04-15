@@ -3,16 +3,16 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { MyContextProvider } from "./providers/blabla";
+import { BetshopContextProvider } from "./providers/selectedBetshopProvider";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
 );
 root.render(
   <React.StrictMode>
-    <MyContextProvider>
+    <BetshopContextProvider>
       <App />
-    </MyContextProvider>
+    </BetshopContextProvider>
   </React.StrictMode>,
 );
 

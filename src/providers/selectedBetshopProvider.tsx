@@ -1,48 +1,25 @@
-import React, {
-  PropsWithChildren,
-  createContext,
-  useCallback,
-  useState,
-} from "react";
+import React, { PropsWithChildren } from "react";
 
-export interface SelectedBetshopContextState {
-  selectedBetshopId: number | null;
-  setSelectedBetshopId: (id: number | null) => void;
+export interface BetshopState {
+  betshopId?: number;
+  setBetshopId?: any;
 }
 
-export const SelectedBetshopContext =
-  React.createContext<SelectedBetshopContextState>({
-    selectedBetshopId: null,
-    setSelectedBetshopId: () => {},
-  });
-
-export const SelectedBetshopContextProvider: React.FC<PropsWithChildren> = ({
+export const BetshopContext = React.createContext<BetshopState>(null);
+export const BetshopContextProvider: React.FC<PropsWithChildren> = ({
   children,
 }) => {
-  const [selectedBetshopId, setSelectedItemId] = useState<number | null>(null);
+  const [selectedBetshop, setSelectedBetshop] = React.useState();
 
-  const setSelectedBetshopId = useCallback(
-    (a: number | null) => {
-      setSelectedItemId(a);
-    },
-    [setSelectedItemId],
-  );
-
-  const memoizedValue = React.useMemo(
-    () => ({ selectedBetshopId, setSelectedBetshopId }),
-    [selectedBetshopId, setSelectedBetshopId],
-  );
   return (
-    <SelectedBetshopContext.Provider value={memoizedValue}>
+    <BetshopContext.Provider
+      // eslint-disable-next-line react/jsx-no-constructed-context-values
+      value={{
+        betshopId: selectedBetshop,
+        setBetshopId: setSelectedBetshop,
+      }}
+    >
       {children}
-    </SelectedBetshopContext.Provider>
+    </BetshopContext.Provider>
   );
 };
-
-interface SelectedIdContextInterface {
-  selectedId: number | null;
-  setSelectedId: React.Dispatch<React.SetStateAction<number | null>>;
-}
-
-export const SelectedIdContext =
-  createContext<SelectedIdContextInterface | null>(null);

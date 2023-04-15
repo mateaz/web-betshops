@@ -1,5 +1,5 @@
 import React from "react";
-import { WeatherItems } from "./weatherItems";
+import { WeatherItems } from "./WeatherItems";
 import {
   convertDate,
   getHoursFromDate,
@@ -29,7 +29,7 @@ export const WeatherCards: React.FC<WeatherCardsProps> = ({ weatherData }) => {
               {today ? <span className="italic"> (today)</span> : null}
             </p>
             {weatherDataList.map(({ dt_txt, weather, main, clouds }) => {
-              const hours = ` at ${getHoursFromDate(dt_txt)} `;
+              const hours = ` at ${getHoursFromDate(dt_txt)}`;
               const cloudsPressure = `${clouds?.all}%, ${main.pressure} hpa`;
               return (
                 <WeatherItems

@@ -8,6 +8,8 @@ import closeHoursImg from "../assets/ic_close.png";
 export const defaultIconSize: PointExpression = [16.5, 43];
 export const activeIconSize: PointExpression = [24, 63];
 
+export const temperatureScales: number[] = [14, 20, 25];
+
 export {
   defaultIconUrl,
   activeIconUrl,

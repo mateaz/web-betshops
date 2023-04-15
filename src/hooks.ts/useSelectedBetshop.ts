@@ -1,7 +1,7 @@
 import React from "react";
-import { SelectedBetshopContext } from "../providers/selectedBetshopProvider";
+import { BetshopContext } from "../providers/selectedBetshopProvider";
 
 export const useSelectedBetshop = () => {
-  const selectedBetshop = React.useContext(SelectedBetshopContext);
+  const selectedBetshop = React.useContext(BetshopContext);
   return selectedBetshop;
 };
