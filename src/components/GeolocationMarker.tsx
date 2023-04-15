@@ -11,7 +11,7 @@ export const GeolocationMarker = () => {
       .locate()
       .on("locationfound", (e) => {
         setPosition(e.latlng);
-        map.flyTo(e.latlng, 15);
+        map.flyTo(e.latlng, 13);
       })
       .on("locationerror", () => {
         map.flyTo([48.137154, 11.576124], 13);

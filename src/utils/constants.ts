@@ -4,6 +4,7 @@ import activeIconUrl from "../assets/ic_pin_active.png"; // UREDITI
 import locationImg from "../assets/ic_bet_shop_location.png";
 import openHoursImg from "../assets/ic_bet_shop_hours.png";
 import closeHoursImg from "../assets/ic_close.png";
+import nearMeImg from "../assets/icon_near_me.png";
 
 export const defaultIconSize: PointExpression = [16.5, 43];
 export const activeIconSize: PointExpression = [24, 63];
@@ -16,4 +17,5 @@ export {
   locationImg,
   openHoursImg,
   closeHoursImg,
+  nearMeImg,
 };

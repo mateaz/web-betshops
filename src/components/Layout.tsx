@@ -9,9 +9,8 @@ import { LoadingSpinner } from "./shared/LoadingSpinner";
 export const Layout: React.FC = () => {
   const [betshopMarkers, setBetshopMarkers] = useState<Betshop[]>();
   const [loading, setLoading] = useState<boolean>(true);
-  // 7.360840,47.409503,14.265747,50.355976
   useEffect(() => {
-    getBetShops([50.355976, 14.265747, 47.409503, 7.36084])
+    getBetShops([48.16124, 11.60912, 48.12229, 11.52741])
       .then((response) => {
         setBetshopMarkers(response.data.betshops);
       })

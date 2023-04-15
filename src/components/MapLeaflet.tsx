@@ -3,8 +3,9 @@ import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer } from "react-leaflet";
 import { Betshop } from "../types/betshop";
 import { BetshopMarkers } from "./BetshopMarkers";
-import { GeolocationMarker } from "./GeolocationMarker";
 import { LoadingSpinner } from "./shared/LoadingSpinner";
+import { GeolocationMarker } from "./GeolocationMarker";
+import { ResetView } from "./ResetView";
 
 interface MapProps {
   betshops: Betshop[];
@@ -20,7 +21,7 @@ export const MapLeaflet: React.FC<MapProps> = ({ betshops }) => {
         zoom={10} // staviti u neku varijablu van
         maxZoom={15} // staviti u neku varijablu van
         minZoom={10} // staviti u neku varijablu van
-        className="h-screen border-2 border-white w-full"
+        className="h-screen border-2 border-white w-full z-0"
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -28,6 +29,7 @@ export const MapLeaflet: React.FC<MapProps> = ({ betshops }) => {
         />
 
         {betshops.length > 0 && <BetshopMarkers betshopMarkers={betshops} />}
+        <ResetView />
         <GeolocationMarker />
       </MapContainer>
     </div>
