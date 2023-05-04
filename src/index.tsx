@@ -4,15 +4,18 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BetshopContextProvider } from "./providers/selectedBetshopProvider";
+import { MapBoundingBoxContextProvider } from "./providers/mapBoundingBoxProvider";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
 );
 root.render(
   <React.StrictMode>
-    <BetshopContextProvider>
-      <App />
-    </BetshopContextProvider>
+    <MapBoundingBoxContextProvider>
+      <BetshopContextProvider>
+        <App />
+      </BetshopContextProvider>
+    </MapBoundingBoxContextProvider>
   </React.StrictMode>,
 );
 

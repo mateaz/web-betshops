@@ -1,25 +1,24 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { useEffect, useState } from "react";
-import { Betshop } from "../types/betshop";
-import { getBetshops } from "../lib/mapService";
 import { Sidebar } from "./Sidebar/Sidebar";
 import { MapLeaflet } from "./Map/MapLeaflet";
-import { LoadingSpinner } from "./shared/LoadingSpinner";
-import { mapConstants } from "../utils/constants";
+import { useMapBoundingBox } from "../hooks/useMapBoundingBox";
+import { getBetshops } from "../lib/mapService";
+import { Betshop } from "../types/betshop";
 
 export const Layout: React.FC = () => {
   const [betshopMarkers, setBetshopMarkers] = useState<Betshop[]>();
-  const [loading, setLoading] = useState<boolean>(true);
-  useEffect(() => {
-    setLoading(true);
-    getBetshops(mapConstants.bBox)
-      .then((response) => {
-        setBetshopMarkers(response.data.betshops);
-      })
-      .finally(() => setLoading(false));
-  }, []);
+  const { boundingBox } = useMapBoundingBox();
 
-  if (loading) return <LoadingSpinner text="Betshop data is loading..." />;
+  useEffect(() => {
+    if (boundingBox) {
+      setTimeout(() => {
+        getBetshops(boundingBox).then((response) => {
+          setBetshopMarkers(response.data.betshops);
+        });
+      }, 500);
+    }
+  }, [boundingBox]);
 
   return (
     <div className="relative h-screen w-screen overflow-hidden flex flex-row gap-x-[15px] justify-center">

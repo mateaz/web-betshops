@@ -7,6 +7,7 @@ import { LoadingSpinner } from "../shared/LoadingSpinner";
 import { GeolocationMarker } from "./GeolocationMarker";
 import { ResetView } from "./ResetView";
 import { mapConstants } from "../../utils/constants";
+import { Zoomend } from "./Zoomend";
 
 interface MapProps {
   betshops: Betshop[];
@@ -14,7 +15,7 @@ interface MapProps {
 
 export const MapLeaflet: React.FC<MapProps> = ({ betshops }) => {
   return (
-    <div className="h-screen overflow-hidden w-[400px] drop-shadow-md max-[630px]:w-screen">
+    <div className="h-screen overflow-hidden w-full drop-shadow-md max-[630px]:w-screen">
       {!betshops && <LoadingSpinner text="Betshop data is loading..." />}
       <MapContainer
         center={mapConstants.center}
@@ -30,6 +31,7 @@ export const MapLeaflet: React.FC<MapProps> = ({ betshops }) => {
         {betshops && <BetshopMarkers betshopMarkers={betshops} />}
         <ResetView />
         <GeolocationMarker />
+        <Zoomend />
       </MapContainer>
     </div>
   );
