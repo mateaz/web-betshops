@@ -3,6 +3,7 @@ import {
   endOpenHour,
   isBetshopOpen,
   startOpenHour,
+  isToday,
 } from "../../../utils/getOpeningTime";
 import { Box } from "../../shared/Box";
 import { DetailsRow } from "../../shared/DetailsRow";
@@ -19,7 +20,7 @@ export const WorkingHoursDetails: React.FC = () => {
   return (
     <Box>
       <HoursIcon />
-      <DetailsRow text={`Opens tomorrow at ${startOpenHour}`} />
+      <DetailsRow text={`Opens ${isToday()} at ${startOpenHour}`} />
     </Box>
   );
 };

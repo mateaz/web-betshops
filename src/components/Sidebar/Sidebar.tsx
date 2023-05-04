@@ -20,7 +20,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ betshops }) => {
 
   return (
     <div
-      className={`sidebar relative drop-shadow-md w-[215px] h-screen py-[22px] px-[18px] bg-white ${
+      className={`sidebar relative drop-shadow-md w-96 h-screen ${
         show && "show"
       }`}
     >

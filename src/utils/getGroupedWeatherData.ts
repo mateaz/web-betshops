@@ -11,6 +11,7 @@ export const groupWeatherDataByDay = (data: WeatherDataList[]) => {
     );
 
     if (!existingDate) {
+   
       const newObj = {
         date,
         weatherDataList: [
@@ -34,3 +35,4 @@ export const groupWeatherDataByDay = (data: WeatherDataList[]) => {
   });
   return transformedData;
 };
+

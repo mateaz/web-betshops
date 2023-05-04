@@ -22,7 +22,7 @@ export const WeatherCards: React.FC<WeatherCardsProps> = ({ weatherData }) => {
         return (
           <div
             key={date}
-            className={`text-darkgrey text-xs text-left px-1 py-1 ${activeCard} ${odd} `}
+            className={`text-darkgrey text-xs text-left px-4 py-4 ${activeCard} ${odd} `}
           >
             <p>
               <span className="font-medium">{convertDate(date)}</span>
