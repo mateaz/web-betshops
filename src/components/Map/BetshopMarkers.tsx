@@ -5,7 +5,7 @@ import { Marker } from "react-leaflet";
 import { Betshop } from "../../types/betshop";
 
 import { createIcon } from "../../utils/getIcon";
-import { useSelectedBetshop } from "../../hooks.ts/useSelectedBetshop";
+import { useSelectedBetshop } from "../../hooks/useSelectedBetshop";
 
 interface BetshopMarkersProps {
   betshopMarkers: Betshop[];

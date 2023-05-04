@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getWeather } from "../../../lib/wheatherService";
+import { getWeather } from "../../../lib/weatherService";
 import { WeatherDataItem } from "../../../types/weather";
 import { WeatherCards } from "./WeatherCards";
 import { LoadingSpinner } from "../../shared/LoadingSpinner";

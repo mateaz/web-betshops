@@ -1,7 +1,7 @@
 import { useMapEvents } from "react-leaflet";
 import { NearMeIcon } from "../shared/NearMeIcon";
 import { mapConstants } from "../../utils/constants";
-import { useSelectedBetshop } from "../../hooks.ts/useSelectedBetshop";
+import { useSelectedBetshop } from "../../hooks/useSelectedBetshop";
 
 export const ResetView = () => {
   const { setBetshopId } = useSelectedBetshop();

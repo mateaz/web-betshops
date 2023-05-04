@@ -3,7 +3,7 @@ import { Betshop } from "../../types/betshop";
 import { CloseIcon } from "../shared/CloseIcon";
 import { InformationBox } from "./InformationBox";
 import { WeatherBox } from "./WeatherBox";
-import { useSelectedBetshop } from "../../hooks.ts/useSelectedBetshop";
+import { useSelectedBetshop } from "../../hooks/useSelectedBetshop";
 
 interface SidebarProps {
   betshops: Betshop[];
