@@ -28,7 +28,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ betshops }) => {
     <div>
       {betshops && (
         <div
-          className={`sidebar relative drop-shadow-md w-[200px] md:w-96 h-screen ${
+          className={`sidebar relative drop-shadow-md w-[215px] md:w-96 h-screen ${
             show && "show"
           }`}
         >
