@@ -33,7 +33,7 @@ export const Layout: React.FC = () => {
       {error ? (
         <RefreshPage onClick={handleOnRefreshPage} />
       ) : (
-        <div className="relative h-screen w-screen overflow-hidden flex flex-row gap-x-[15px] justify-center">
+        <div className="relative h-screen w-screen overflow-hidden flex flex-row gap-x-[0px] sm:gap-x-[15px] justify-center">
           <MapLeaflet betshops={betshopMarkers} />
           <Sidebar betshops={betshopMarkers} />
         </div>

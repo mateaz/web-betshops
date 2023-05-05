@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Betshop } from "../../types/betshop";
-import { CloseIcon } from "../shared/CloseIcon";
 import { InformationBox } from "./InformationBox";
 import { WeatherBox } from "./WeatherBox";
 import { useSelectedBetshop } from "../../hooks/useSelectedBetshop";
@@ -19,25 +18,20 @@ export const Sidebar: React.FC<SidebarProps> = ({ betshops }) => {
     if (betId !== betshopId) {
       setBetId(betshopId);
       setClickedBetshop(betshops?.filter((b) => b.id === betshopId)[0]);
+      if (betshopId) {
+        setShow(true);
+      } else setShow(false);
     }
-    setShow(!!clickedBetshop);
   }, [betId, clickedBetshop, betshops, betshopId]);
 
   return (
     <div>
       {betshops && (
         <div
-          className={`sidebar relative drop-shadow-md w-96 h-screen ${
+          className={`sidebar relative drop-shadow-md w-[200px] md:w-96 h-screen ${
             show && "show"
           }`}
         >
-          <button
-            className="absolute right-2 top-2 min-[631px]:hidden"
-            type="button"
-            onClick={() => setShow(false)}
-          >
-            <CloseIcon />
-          </button>
           {clickedBetshop ? (
             <div className="flex flex-col gap-y-[15px] h-full overflow-hidden">
               <InformationBox betshop={clickedBetshop} />
@@ -47,7 +41,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ betshops }) => {
               />
             </div>
           ) : (
-            <p className="flex h-full items-center text-blue font-medium italic">
+            <p className="flex h-full items-center text-blue font-medium italic information-hidden">
               To get some information about a betshop, click on icon
             </p>
           )}
