@@ -16,10 +16,10 @@ export const TemperatureTag: React.FC<TemperatureTagProps> = ({
       "bg-green":
         temperature >= temperatureScales[0] &&
         temperature < temperatureScales[1],
-      "bg-orange":
+      "bg-brandorange":
         temperature >= temperatureScales[1] &&
         temperature < temperatureScales[2],
-      "bg-red": temperature >= temperatureScales[2],
+      "bg-brandred": temperature >= temperatureScales[2],
     },
   );
 

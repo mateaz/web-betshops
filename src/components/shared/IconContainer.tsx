@@ -9,5 +9,5 @@ export const IconContainer: React.FC<IconContainerProps> = ({
   imgUrl,
   imgAlt,
 }) => {
-  return <img src={imgUrl} alt={imgAlt} className="h-fit w-fit pr-2" />;
+  return <img src={imgUrl} alt={imgAlt} className="h-fit w-fit " />;
 };

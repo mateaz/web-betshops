@@ -13,14 +13,16 @@ interface WeatherBoxProps {
 export const WeatherBox: React.FC<WeatherBoxProps> = ({ lat, lng }) => {
   const [weatherData, setWeatherData] = useState<WeatherDataItem[]>();
   const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
     if (lat && lng) {
       getWeather(lat, lng)
         .then((response) => {
-          //  console.log(response.data.list);
           setWeatherData(groupWeatherDataByDay(response.data.list));
+          setError(false);
         })
+        .catch(() => setError(true))
         .finally(() => setLoading(false));
     }
   }, [lat, lng]);
@@ -28,8 +30,17 @@ export const WeatherBox: React.FC<WeatherBoxProps> = ({ lat, lng }) => {
   if (loading) return <LoadingSpinner text="Weather data is loading..." />;
   return (
     <div className="w-full overflow-y-auto h-full bg-white py-4">
-      <h3 className="text-darkgrey font-medium">Weather</h3>
-      <WeatherCards weatherData={weatherData} />
+      {error && (
+        <div className="italic text-red">
+          Something went wrong. Please try again!
+        </div>
+      )}
+      {weatherData && (
+        <>
+          <h3 className="text-darkgrey font-medium">Weather</h3>
+          <WeatherCards weatherData={weatherData} />
+        </>
+      )}
     </div>
   );
 };

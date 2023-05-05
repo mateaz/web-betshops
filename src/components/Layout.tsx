@@ -4,12 +4,12 @@ import { MapLeaflet } from "./Map/MapLeaflet";
 import { useMapBoundingBox } from "../hooks/useMapBoundingBox";
 import { getBetshops } from "../lib/mapService";
 import { Betshop } from "../types/betshop";
-import { LoadingSpinner } from "./shared/LoadingSpinner";
+import { RefreshPage } from "./shared/RefreshPage";
 
 export const Layout: React.FC = () => {
   const [betshopMarkers, setBetshopMarkers] = useState<Betshop[]>();
-  const [loading, setLoading] = useState<boolean>(true);
   const { boundingBox } = useMapBoundingBox();
+  const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
     if (boundingBox) {
@@ -17,19 +17,27 @@ export const Layout: React.FC = () => {
         getBetshops(boundingBox)
           .then((response) => {
             setBetshopMarkers(response.data.betshops);
+            setError(false);
           })
-          .finally(() => setLoading(false));
+          .catch(() => setError(true));
       }, 500);
     }
   }, [boundingBox]);
 
+  const handleOnRefreshPage = () => {
+    window.location.reload();
+  };
+
   return (
-    <>
-      {loading && <LoadingSpinner text="Betshop data is loading..." />}
-      <div className="relative h-screen w-screen overflow-hidden flex flex-row gap-x-[15px] justify-center">
-        <MapLeaflet betshops={betshopMarkers} />
-        <Sidebar betshops={betshopMarkers} />
-      </div>
-    </>
+    <div>
+      {error ? (
+        <RefreshPage onClick={handleOnRefreshPage} />
+      ) : (
+        <div className="relative h-screen w-screen overflow-hidden flex flex-row gap-x-[15px] justify-center">
+          <MapLeaflet betshops={betshopMarkers} />
+          <Sidebar betshops={betshopMarkers} />
+        </div>
+      )}
+    </div>
   );
 };
